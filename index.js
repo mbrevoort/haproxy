@@ -31,6 +31,7 @@ var slice = Array.prototype.slice;
  * - discover: Tries to find your HAProxy instance if you don't know the pid
  * - socket: The location of the unix socket
  * - [optional] which: The location of the haproxy
+ * - [optional] sudo: If `true` start haproxy with `sudo`. Default is `false`
  *
  * @see http://cbonte.github.io/haproxy-dconv/configuration-1.5.html#9.2
  *
@@ -63,7 +64,8 @@ function HAProxy(socket, options) {
     pid: options.pid,
     pidFile: options.pidFile,
     discover: options.discover,
-    config: this.cfg
+    config: this.cfg,
+    sudo: options.sudo
   });
 }
 
